@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bulma@1.0.4/css/bulma.min.css"
+    />
+    <title>Registrese</title>
+  </head>
+  <body>
+    <p><font size="5">Registra tu información para poder crear una cuenta</font></p>
+
+    <!--Nombre, Apellido, Cedula, Telefono, Correo electronico, Genero, Cargo, Fecha de nacimiento, Contraseña-->
+    <div class="field">
+      <label class="label">Nombres</label>
+      <div class="control">
+        <input class="input" type="text" placeholder="ej. Ellie Alejandra" />
+      </div>
+    </div>
+    <div class="field">
+      <label class="label">Apellidos</label>
+      <div class="control">
+        <input class="input" type="text" placeholder="ej. Gómez Gallardo" />
+      </div>
+    </div>
+    <div class="field">
+      <label class="label">Número de Cédula</label>
+      <div class="control">
+        <input class="input" type="text" placeholder="ej. 1234567890" />
+      </div>
+    </div>
+
+    <div class="field">
+      <label class="label">Mail</label>
+      <div class="control">
+        <input class="input" type="email" placeholder="ej. ejemplo@gmail.com" />
+      </div>
+    </div>
+    <div class="control">
+      <div class="select">
+        <select>
+          <option>Genero</option>
+          <option>Masculino</option>
+          <option>Femenino</option>
+          <option>Prefiero no decirlo</option>
+        </select>
+      </div>
+    </div>
+    <div class="control">
+      <div class="select">
+        <select>
+          <option>Seleccione un cargo</option>
+          <option>Cliente</option>
+          <option>Trabajador</option>
+          <option>Administrador</option>
+        </select>
+      </div>
+    </div>
+    <div class="field">
+      <label class="label">Fecha de nacimiento</label>
+      <div class="control">
+        <input class="input" type="text" placeholder="ej. 20 de abril del 2000" />
+      </div>
+    </div>
+    <div class="field">
+      <label class="label">Escriba su contraseña</label>
+      <div class="control">
+        <input class="input" type="text" placeholder="ej. contraseña123" />
+      </div>
+    </div>
+    <a href="http://127.0.0.1:5500/modulos/iniciarSesionUsuario.html">
+    <div class="control">
+      <button class="button is-primary">Registrar</button>
+    </div>
+</a>
+<p>
+        ¿Ya se registró? <a href="http://127.0.0.1:5500/modulos/iniciarSesionUsuario.html">Presione aquí</a> para iniciar sesión.
+    </p>
+  </body>
+</html>
