@@ -1,12 +1,217 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.4/css/bulma.min.css" />
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bulma@1.0.4/css/bulma.min.css"
+    />
     <title>Contabilidad</title>
-</head>
-<body>
-    
-</body>
+    <style>
+      /* Estilos para forzar el aspecto de "rectángulo trazado" del boceto */
+      .main-wrapper {
+        padding: 40px; /* Espacio entre los extremos de la página y los rectángulos */
+      }
+      .outline-rect {
+        border: 2px solid #4a4a4a;
+        padding: 1.5rem;
+        margin-bottom: 2rem;
+        background-color: transparent;
+      }
+      .profile-circle-flat {
+        width: 140px;
+        height: 140px;
+        border-radius: 50%;
+        border: 2px solid #4a4a4a;
+        margin: 0 auto 20px auto;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: #fafafa;
+      }
+      .name-rect-flat {
+        border: 2px solid #4a4a4a;
+        padding: 10px;
+        text-align: center;
+        font-weight: bold;
+        background-color: #fafafa;
+      }
+      .inner-content-rect {
+        border: 2px solid #4a4a4a;
+        padding: 2rem;
+        height: 100%;
+      }
+      .mini-box-flat {
+        border: 1px solid #7a7a7a;
+        padding: 8px 12px;
+        margin-bottom: 10px;
+        background-color: #ffffff;
+        color: #4a4a4a;
+        font-size: 0.9rem;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- ventas, fecha, ingresos, egresos, concepto, valor -->
+    <!doctype html>
+    <html lang="es">
+      <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>Esquema Contabilidad</title>
+        <link
+          rel="stylesheet"
+          href="https://cdn.jsdelivr.net/npm/bulma@1.0.0/css/bulma.min.css"
+        />
+        <style>
+          .main-wrapper {
+            padding: 40px;
+          }
+          /* Estilos fijos y planos */
+          .outline-rect {
+            border: 2px solid #4a4a4a;
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+          }
+          .header-flat {
+            background-color: #f5f5f5;
+          }
+          .profile-circle-flat {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            border: 2px solid #4a4a4a;
+            margin: 0 auto 20px auto;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+          }
+          .profile-circle-flat img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+          }
+          .name-rect-flat {
+            border: 2px solid #4a4a4a;
+            padding: 10px;
+            text-align: center;
+            font-weight: bold;
+            background-color: #fafafa;
+            color: #4a4a4a;
+          }
+          /* Área modificable */
+          .inner-content-rect {
+            border: 2px solid #4a4a4a;
+            padding: 2rem;
+            height: 100%;
+          }
+        </style>
+      </head>
+      <body>
+        <
+        <div class="main-wrapper">
+          <div class="outline-rect header-flat">
+            <h1 class="title is-3 has-text-centered is-marginless">
+              CONTABILIDAD
+            </h1>
+          </div>
+
+          <div class="outline-rect">
+            <div class="columns">
+              <div class="column is-4">
+                <div class="p-4">
+                  <div class="profile-circle-flat">
+                    <img
+                      src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSDjhE-ufCalGusRGkvx1YLZkx8F-pE6U9DXQ&s"
+                      alt="Avatar"
+                    />
+                  </div>
+                  <div class="name-rect-flat">USUARIO</div>
+                </div>
+              </div>
+
+              <div class="column is-8">
+                <div class="p-4">
+                  <div class="inner-content-rect">
+                    <div class="columns is-multiline">
+                      <div class="column is-6">
+                        <div class="field">
+                          <label class="label">Ventas</label>
+                          <div class="control">
+                            <input
+                              class="input"
+                              type="text"
+                              placeholder="Ingresa ventas..."
+                            />
+                          </div>
+                        </div>
+                      </div>
+                      <div class="column is-6">
+                        <div class="field">
+                          <label class="label">Fecha</label>
+                          <div class="control">
+                            <input class="input" type="date" />
+                          </div>
+                        </div>
+                      </div>
+                      <div class="column is-6">
+                        <div class="field">
+                          <label class="label">Ingresos</label>
+                          <div class="control">
+                            <input
+                              class="input"
+                              type="number"
+                              placeholder="0.00"
+                            />
+                          </div>
+                        </div>
+                      </div>
+                      <div class="column is-6">
+                        <div class="field">
+                          <label class="label">Egresos</label>
+                          <div class="control">
+                            <input
+                              class="input"
+                              type="number"
+                              placeholder="0.00"
+                            />
+                          </div>
+                        </div>
+                      </div>
+                      <div class="column is-12">
+                        <div class="field">
+                          <label class="label">Concepto</label>
+                          <div class="control">
+                            <input
+                              class="input"
+                              type="text"
+                              placeholder="Escribe el concepto aquí"
+                            />
+                          </div>
+                        </div>
+                      </div>
+                      <div class="column is-12">
+                        <div class="field">
+                          <label class="label">Valor</label>
+                          <div class="control">
+                            <input
+                              class="input is-link"
+                              type="number"
+                              placeholder="Valor final"
+                            />
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </body>
+    </html>
+  </body>
 </html>
