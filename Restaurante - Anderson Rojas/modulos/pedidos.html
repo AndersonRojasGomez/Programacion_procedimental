@@ -5,8 +5,118 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.4/css/bulma.min.css" />
     <title>Pedidos</title>
+    <style>
+        /* Margen exterior para que el formulario no toque los bordes de la pantalla */
+        .page-margin {
+            padding: 3rem 1.5rem;
+        }
+        /* Contenedor con borde trazado siguiendo el estilo anterior */
+        .order-box {
+            border: 2px solid #4a4a4a;
+            padding: 2rem;
+            background-color: #ffffff;
+            border-radius: 8px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+    </style>
 </head>
 <body>
-    
+<!--Producto, dirección, nombre del usuario, cantidad, metodo de pago, telefono-->
+<div class="field is-grouped">
+  <a href="http://127.0.0.1:5500/Restaurante%20-%20Anderson%20Rojas/index.html">
+    <div class="control">
+      <button class="button is-primary">Regresar</button>
+    </a>
+    </div>
+    <div class="page-margin">
+        <div class="order-box">
+            <!-- Título del Formulario -->
+            <h2 class="title is-4 has-text-centered mb-5">REGISTRO DE PEDIDO</h2>
+            
+            <div class="columns is-multiline">
+                
+                <!-- Nombre del Usuario -->
+                <div class="column is-6">
+                    <div class="field">
+                        <label class="label">Nombre del Usuario</label>
+                        <div class="control">
+                            <input class="input" type="text" placeholder="Ej. Juan Pérez">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Teléfono -->
+                <div class="column is-6">
+                    <div class="field">
+                        <label class="label">Teléfono</label>
+                        <div class="control">
+                            <input class="input" type="tel" placeholder="Ej. +57 300...">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Producto -->
+                <div class="column is-8">
+                    <div class="field">
+                        <label class="label">Producto</label>
+                        <div class="control">
+                            <div class="select is-fullwidth">
+                                <select>
+                                    <option>Selecciona un producto</option>
+                                    <option>Producto A</option>
+                                    <option>Producto B</option>
+                                    <option>Producto C</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="column is-4">
+                    <div class="field">
+                        <label class="label">Cantidad</label>
+                        <div class="control">
+                            <input class="input" type="number" min="1" value="1">
+                        </div>
+                    </div>
+                </div>
+                <div class="column is-12">
+                    <div class="field">
+                        <label class="label">Dirección de Entrega</label>
+                        <div class="control">
+                            <input class="input" type="text" placeholder="Calle, Carrera, Ciudad...">
+                        </div>
+                    </div>
+                </div>
+                <div class="column is-12">
+                    <div class="field">
+                        <label class="label">Método de Pago</label>
+                        <div class="control">
+                            <label class="radio">
+                                <input type="radio" name="pago" checked>
+                                Efectivo
+                            </label>
+                            <label class="radio">
+                                <input type="radio" name="pago">
+                                Transferencia
+                            </label>
+                            <label class="radio">
+                                <input type="radio" name="pago">
+                                Tarjeta
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                <div class="column is-12">
+                    <div class="field mt-4">
+                        <div class="control">
+                            <button class="button is-dark is-fullwidth">PROCESAR PEDIDO</button>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
 </body>
 </html>
