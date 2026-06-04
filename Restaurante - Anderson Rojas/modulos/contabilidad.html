@@ -54,6 +54,7 @@
   </head>
   <body>
     <!-- ventas, fecha, ingresos, egresos, concepto, valor -->
+     
     <!doctype html>
     <html lang="es">
       <head>
@@ -108,9 +109,13 @@
             height: 100%;
           }
         </style>
+      <script src="contabilidad.js"></script>
       </head>
       <body>
-        <
+        <a href="http://127.0.0.1:5500/Restaurante%20-%20Anderson%20Rojas/index.html">
+    <div class="control">
+      <button class="button is-primary">Regresar</button>
+    </div>
         <div class="main-wrapper">
           <div class="outline-rect header-flat">
             <h1 class="title is-3 has-text-centered is-marginless">
@@ -140,7 +145,7 @@
                         <div class="field">
                           <label class="label">Ventas</label>
                           <div class="control">
-                            <input
+                            <input id="ventas"
                               class="input"
                               type="text"
                               placeholder="Ingresa ventas..."
@@ -152,7 +157,7 @@
                         <div class="field">
                           <label class="label">Fecha</label>
                           <div class="control">
-                            <input class="input" type="date" />
+                            <input class="input" type="date" id="fecha" />
                           </div>
                         </div>
                       </div>
@@ -163,6 +168,7 @@
                             <input
                               class="input"
                               type="number"
+                              id="ingresos"
                               placeholder="0.00"
                             />
                           </div>
@@ -175,6 +181,7 @@
                             <input
                               class="input"
                               type="number"
+                              id="egresos"
                               placeholder="0.00"
                             />
                           </div>
@@ -187,6 +194,7 @@
                             <input
                               class="input"
                               type="text"
+                              id="concepto"
                               placeholder="Escribe el concepto aquí"
                             />
                           </div>
@@ -199,6 +207,7 @@
                             <input
                               class="input is-link"
                               type="number"
+                              id="valor"
                               placeholder="Valor final"
                             />
                           </div>
@@ -213,5 +222,6 @@
         </div>
       </body>
     </html>
+  <script src="../JS/contabilidad.js"></script>
   </body>
 </html>
