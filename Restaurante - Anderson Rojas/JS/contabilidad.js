@@ -1,10 +1,3 @@
-let ventas = document.getElementById ("ventas").value;
-let fecha = document.getElementById ("fecha").value;
-let ingresos = document.getElementById ("ingresos").value;
-let egresos = document.getElementById ("egresos").value;
-let concepto = document.getElementById ("concepto").value;
-let valor = document.getElementById ("valor").value;
-
 document.addEventListener("DOMContentLoaded", () => {
     const inputVentas = document.getElementById("ventas");
     const inputFecha = document.getElementById("fecha");
@@ -12,45 +5,79 @@ document.addEventListener("DOMContentLoaded", () => {
     const inputEgresos = document.getElementById("egresos");
     const inputConcepto = document.getElementById("concepto");
     const inputValor = document.getElementById("valor");
-
-    const prevenirNegativos = (e) => {
-        if (e.target.value < 0) {
-            e.target.value = 0; // Si escribe un número negativo, lo fuerza a 0
-        }
+    const btnGuardar = document.getElementById("btn-guardar");
+    const permitirSoloLetras = (e) => {
+        e.target.value = e.target.value.replace(/[^a-zA-ZáéíóúÁÉÍÓÚñÑ\s]/g, "");
     };
-    inputIngresos.addEventListener("input", prevenirNegativos);
-    inputEgresos.addEventListener("input", prevenirNegativos);
-    inputValor.addEventListener("input", prevenirNegativos);
-
+    const permitirSoloNumeros = (e) => {
+        e.target.value = e.target.value.replace(/[^0-9]/g, "");
+    };
     const limitarLongitud = (e, maxLetras) => {
         if (e.target.value.length > maxLetras) {
-            e.target.value = e.target.value.slice(0, maxLetras); // Recorta el exceso
+            e.target.value = e.target.value.slice(0, maxLetras);
         }
     };
-    inputVentas.addEventListener("input", (e) => limitarLongitud(e, 30));
-    inputConcepto.addEventListener("input", (e) => limitarLongitud(e, 60));
-
+    inputVentas.addEventListener("input", (e) => {
+        permitirSoloLetras(e);
+        limitarLongitud(e, 30);
+    });
+    inputConcepto.addEventListener("input", (e) => {
+        permitirSoloLetras(e);
+        limitarLongitud(e, 60);
+    });
+    inputIngresos.addEventListener("input", (e) => {
+        permitirSoloNumeros(e);
+        limitarLongitud(e, 10);
+    });
+    inputEgresos.addEventListener("input", (e) => {
+        permitirSoloNumeros(e);
+        limitarLongitud(e, 10);
+    });
+    inputValor.addEventListener("input", (e) => {
+        permitirSoloNumeros(e);
+        limitarLongitud(e, 10);
+    });
     const hoy = new Date().toISOString().split("T")[0];
-    inputFecha.setAttribute("max", hoy); 
-
-    const validarFormularioCompleto = () => {
+    inputFecha.setAttribute("max", hoy);
+    btnGuardar.addEventListener("click", () => {
         let ventas = inputVentas.value.trim();
         let fecha = inputFecha.value;
-        let ingresos = parseFloat(inputIngresos.value) || 0;
-        let egresos = parseFloat(inputEgresos.value) || 0;
+        let ingresos = inputIngresos.value.trim();
+        let egresos = inputEgresos.value.trim();
         let concepto = inputConcepto.value.trim();
-        let valor = parseFloat(inputValor.value) || 0;
-
+        let valor = inputValor.value.trim();
         if (!ventas || !fecha || !concepto) {
-            alert("Por favor, rellena todos los campos de texto y la fecha.");
-            return false;
+            Swal.fire({
+                icon: "error",
+                title: "Campos incompletos",
+                text: "Por favor, completa los campos obligatorios: Ventas, Fecha y Concepto."
+            });
+            return;
+        }
+        if ((ingresos && isNaN(ingresos)) || (egresos && isNaN(egresos)) || (valor && isNaN(valor))) {
+            Swal.fire({
+                icon: "warning",
+                title: "Datos numéricos inválidos",
+                text: "Los campos de Ingresos, Egresos y Valor deben contener únicamente números."
+            });
+            return;
         }
 
-        if (valor !== (ingresos - egresos)) {
-            alert("Aviso: El valor final no coincide exactamente con (Ingresos - Egresos).");
-        }
-
-        console.log("Datos listos para guardar:", { ventas, fecha, ingresos, egresos, concepto, valor });
-        return true;
-    };
+        Swal.fire({
+            position: "top-end",
+            icon: "success",
+            title: "Datos guardados con éxito",
+            showConfirmButton: false,
+            timer: 1500
+        });
+        
+        console.log("Datos guardados correctamente:", {
+            ventas,
+            fecha,
+            ingresos: ingresos ? Number(ingresos) : 0,
+            egresos: egresos ? Number(egresos) : 0,
+            concepto,
+            valor: valor ? Number(valor) : 0
+        });
+    });
 });

@@ -4,16 +4,13 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Contabilidad</title>
-    <!-- Usando la versión más reciente que tenías en tu código -->
     <link
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/bulma@1.0.4/css/bulma.min.css"/>
-      <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-   
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <style>
-      /* Estilos unificados para el aspecto de "rectángulo trazado" */
       .main-wrapper {
-        padding: 40px; /* Espacio entre los extremos de la página y los rectángulos */
+        padding: 40px;
       }
       .outline-rect {
         border: 2px solid #4a4a4a;
@@ -57,7 +54,6 @@
     </style>
   </head>
   <body>
-    <!-- Botón Regresar (Cerrado correctamente para no romper el flujo) -->
     <div class="main-wrapper pb-0">
       <div class="control">
         <a
@@ -70,15 +66,11 @@
     </div>
 
     <div class="main-wrapper">
-      <!-- Bloque de Encabezado -->
       <div class="outline-rect header-flat">
         <h1 class="title is-3 has-text-centered is-marginless">CONTABILIDAD</h1>
       </div>
-
-      <!-- Bloque de Contenido Principal -->
       <div class="outline-rect">
         <div class="columns">
-          <!-- Columna Izquierda: Perfil (30%) -->
           <div class="column is-4">
             <div class="p-4">
               <div class="profile-circle-flat">
@@ -90,8 +82,6 @@
               <div class="name-rect-flat">USUARIO</div>
             </div>
           </div>
-
-          <!-- Columna Derecha: Formulario (70%) -->
           <div class="column is-8">
             <div class="p-4">
               <div class="inner-content-rect">
@@ -110,8 +100,6 @@
                       </div>
                     </div>
                   </div>
-
-                  <!-- Fecha -->
                   <div class="column is-6">
                     <div class="field">
                       <label class="label">Fecha</label>
@@ -120,8 +108,6 @@
                       </div>
                     </div>
                   </div>
-
-                  <!-- Ingresos -->
                   <div class="column is-6">
                     <div class="field">
                       <label class="label">Ingresos</label>
@@ -135,8 +121,6 @@
                       </div>
                     </div>
                   </div>
-
-                  <!-- Egresos -->
                   <div class="column is-6">
                     <div class="field">
                       <label class="label">Egresos</label>
@@ -150,8 +134,6 @@
                       </div>
                     </div>
                   </div>
-
-                  <!-- Concepto -->
                   <div class="column is-12">
                     <div class="field">
                       <label class="label">Concepto</label>
@@ -180,6 +162,14 @@
                       </div>
                     </div>
                   </div>
+                  <div class="column is-12 mt-3">
+                    <div class="control">
+                      <button id="btn-guardar" class="button is-success is-fullwidth">
+                        Guardar Registro
+                      </button>
+                    </div>
+                  </div>
+
                 </div>
               </div>
             </div>
@@ -187,7 +177,6 @@
         </div>
       </div>
     </div>
-
     <script src="../JS/contabilidad.js"></script>
   </body>
 </html>

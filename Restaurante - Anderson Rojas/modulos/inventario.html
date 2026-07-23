@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="es">
   <head>
     <meta charset="UTF-8" />
@@ -10,68 +10,101 @@
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <title>Inventario</title>
   </head>
-  <body>
-    <div class="control m-4">
-      <a href="http://127.0.0.1:5500/Restaurante%20-%20Anderson%20Rojas/index.html" class="button is-primary" id="btn-regresar">
-        Regresar
-      </a>
+  <body class="has-background-light" style="min-height: 100vh">
+    <div class="container pt-5 px-4">
+      <div class="control">
+        <a
+          href="http://127.0.0.1:5500/Restaurante%20-%20Anderson%20Rojas/index.html"
+          class="button is-primary is-outlined"
+          id="btn-regresar"
+        >
+          Regresar
+        </a>
+      </div>
     </div>
-
-    <div class="container p-4">
-      <h1 class="title is-4">Inventario del restaurante</h1>
-      
-      <div class="control mb-3">
-        <input
-          id="inv-id-producto"
-          class="input"
-          type="text"
-          placeholder="Escriba acá el ID del producto"
-        />
-      </div>
-      
-      <div class="control mb-3">
-        <input
-          id="inv-nombre-producto"
-          class="input"
-          type="text"
-          placeholder="Escriba acá el nombre del producto"
-        />
-      </div>
-      
-      <div class="control mb-3">
-        <input
-          id="inv-codigo-producto"
-          class="input"
-          type="text"
-          placeholder="Escriba acá el código del producto"
-        />
-      </div>
-      
-      <div class="control mb-3">
-        <input
-          id="inv-marca-producto"
-          class="input"
-          type="text"
-          placeholder="Escriba acá la marca del producto"
-        />
-      </div>
-      
-      <div class="control mb-3">
-        <div class="select">
-          <select id="inv-cantidad-producto">
-            <option value="">Seleccione la cantidad del producto</option>
-            <option value="1">1</option>
-            <option value="2">2</option>
-            <option value="3">3</option>
-            <option value="4">4</option>
-            <option value="5">5</option>
-            <option value="6">6</option>
-            <option value="7">7</option>
-            <option value="8+">8 o más</option>
-          </select>
+    <div class="container p-4" style="max-width: 600px">
+      <div class="card">
+        <header class="card-header has-background-primary">
+          <p
+            class="card-header-title is-centered title is-4 has-text-white my-2"
+          >
+            Inventario del restaurante
+          </p>
+        </header>
+        <div class="card-content">
+          <div class="field mb-4">
+            <label class="label">ID del Producto</label>
+            <div class="control">
+              <input
+                id="inv-id-producto"
+                class="input"
+                type="text"
+                placeholder="Escriba acá el ID del producto"
+              />
+            </div>
+          </div>
+          <div class="field mb-4">
+            <label class="label">Nombre del Producto</label>
+            <div class="control">
+              <input
+                id="inv-nombre-producto"
+                class="input"
+                type="text"
+                placeholder="Escriba acá el nombre del producto"
+              />
+            </div>
+          </div>
+          <div class="field mb-4">
+            <label class="label">Código del Producto</label>
+            <div class="control">
+              <input
+                id="inv-codigo-producto"
+                class="input"
+                type="text"
+                placeholder="Escriba acá el código del producto"
+              />
+            </div>
+          </div>
+          <div class="field mb-4">
+            <label class="label">Marca del Producto</label>
+            <div class="control">
+              <input
+                id="inv-marca-producto"
+                class="input"
+                type="text"
+                placeholder="Escriba acá la marca del producto"
+              />
+            </div>
+          </div>
+          <div class="field mb-4">
+            <label class="label">Cantidad</label>
+            <div class="control">
+              <div class="select is-fullwidth">
+                <select id="inv-cantidad-producto">
+                  <option value="">Seleccione la cantidad del producto</option>
+                  <option value="1">1</option>
+                  <option value="2">2</option>
+                  <option value="3">3</option>
+                  <option value="4">4</option>
+                  <option value="5">5</option>
+                  <option value="6">6</option>
+                  <option value="7">7</option>
+                  <option value="8+">8 o más</option>
+                </select>
+              </div>
+            </div>
+          </div>
+          <div class="field mt-5">
+            <div class="control">
+              <button id="btn-enviar" class="button is-success is-fullwidth">
+                Enviar
+              </button>
+            </div>
+          </div>
         </div>
       </div>
     </div>
+
     <script src="../JS/inventario.js"></script>
   </body>
 </html>

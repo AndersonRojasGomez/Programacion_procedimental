@@ -1,86 +1,112 @@
-document.getElementById("form-registro").addEventListener("submit", function(event) {
-  event.preventDefault(); 
-  ValidarDatos();
+document.addEventListener("DOMContentLoaded", () => {
+  const formRegistro = document.getElementById("form-registro");
+  const inputNombres = document.getElementById("input-nombres");
+  const inputApellidos = document.getElementById("input-apellidos");
+  const inputCedula = document.getElementById("input-cedula");
+  const inputEmail = document.getElementById("input-email");
+  const selectGenero = document.getElementById("select-genero");
+  const selectCargo = document.getElementById("select-cargo");
+  const inputFechaNacimiento = document.getElementById("input-fecha-nacimiento");
+  const inputPassword = document.getElementById("input-password");
+  const permitirSoloLetras = (e) => {
+    e.target.value = e.target.value.replace(/[^a-zA-ZáéíóúÁÉÍÓÚñÑ\s]/g, "");
+  };
+  const permitirSoloNumeros = (e) => {
+    e.target.value = e.target.value.replace(/[^0-9]/g, "");
+  };
+
+  const limitarLongitud = (e, maxLetras) => {
+    if (e.target.value.length > maxLetras) {
+      e.target.value = e.target.value.slice(0, maxLetras);
+    }
+  };
+  inputNombres.addEventListener("input", (e) => {
+    permitirSoloLetras(e);
+    limitarLongitud(e, 40);
+  });
+
+  inputApellidos.addEventListener("input", (e) => {
+    permitirSoloLetras(e);
+    limitarLongitud(e, 40);
+  });
+
+  inputCedula.addEventListener("input", (e) => {
+    permitirSoloNumeros(e);
+    limitarLongitud(e, 12);
+  });
+
+  const hoy = new Date().toISOString().split("T")[0];
+  if (inputFechaNacimiento) {
+    inputFechaNacimiento.setAttribute("max", hoy);
+  }
+
+  formRegistro.addEventListener("submit", (e) => {
+    e.preventDefault();
+    const nombres = inputNombres.value.trim();
+    const apellidos = inputApellidos.value.trim();
+    const cedula = inputCedula.value.trim();
+    const email = inputEmail.value.trim();
+    const genero = selectGenero.value;
+    const cargo = selectCargo.value;
+    const fechaNacimiento = inputFechaNacimiento.value;
+    const password = inputPassword.value.trim();
+    if (
+      !nombres ||
+      !apellidos ||
+      !cedula ||
+      !email ||
+      !genero ||
+      !cargo ||
+      !fechaNacimiento ||
+      !password
+    ) {
+      Swal.fire({
+        icon: "error",
+        title: "Campos incompletos",
+        text: "Por favor, completa todos los campos para continuar.",
+      });
+      return;
+    }
+
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(email)) {
+      Swal.fire({
+        icon: "warning",
+        title: "Correo inválido",
+        text: "Por favor, ingresa una dirección de correo electrónico válida.",
+      });
+      return;
+    }
+
+    if (password.length < 6) {
+      Swal.fire({
+        icon: "warning",
+        title: "Contraseña muy corta",
+        text: "La contraseña debe tener al menos 6 caracteres.",
+      });
+      return;
+    }
+
+    Swal.fire({
+      position: "top-end",
+      icon: "success",
+      title: "Cuenta creada exitosamente",
+      text: `¡Bienvenido/a, ${nombres}!`,
+      showConfirmButton: false,
+      timer: 2000,
+    });
+
+    console.log("Datos de Usuario Registrado:", {
+      nombres,
+      apellidos,
+      cedula,
+      email,
+      genero,
+      cargo,
+      fechaNacimiento,
+      password,
+    });
+
+    formRegistro.reset();
+  });
 });
-
-function ValidarDatos() {
-  let nombres = document.getElementById("input-nombres").value.trim();
-  let apellidos = document.getElementById("input-apellidos").value.trim();
-  let cedula = document.getElementById("input-cedula").value.trim();
-  let email = document.getElementById("input-email").value.trim();
-  let genero = document.getElementById("select-genero").value;
-  let cargo = document.getElementById("select-cargo").value;
-  let fechaNacimiento = document.getElementById("input-fecha-nacimiento").value;
-  let password = document.getElementById("input-password").value;
-
-  let regexLetras = /^[a-zA-ZáéíóúÁÉÍÓÚñÑ\s]+$/;
-  let regexNumeros = /^[0-9]+$/;
-  let regexEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-
-  if (nombres === "") {
-    alert("Por favor, ingrese sus nombres.");
-    return false;
-  }
-  if (!regexLetras.test(nombres)) {
-    alert("El campo 'Nombres' no admite números ni caracteres especiales.");
-    return false;
-  }
-
-  if (apellidos === "") {
-    alert("Por favor, ingrese sus apellidos.");
-    return false;
-  }
-  if (!regexLetras.test(apellidos)) {
-    alert("El campo 'Apellidos' no admite números ni caracteres especiales.");
-    return false;
-  }
-
-  if (cedula === "") {
-    alert("Por favor, ingrese su número de cédula.");
-    return false;
-  }
-  if (!regexNumeros.test(cedula)) {
-    alert("El número de cédula no admite letras ni caracteres especiales. Ingrese solo dígitos.");
-    return false;
-  }
-  if (cedula.length < 6 || cedula.length > 12) {
-    alert("El número de cédula debe tener una longitud válida (entre 6 y 12 dígitos).");
-    return false;
-  }
-
-  if (email === "") {
-    alert("Por favor, ingrese su correo electrónico.");
-    return false;
-  }
-  if (!regexEmail.test(email)) {
-    alert("Por favor, ingrese un formato de correo electrónico válido (ejemplo@correo.com).");
-    return false;
-  }
-
-  if (genero === "") {
-    alert("Por favor, seleccione una opción en el campo 'Género'.");
-    return false;
-  }
-
-
-  if (cargo === "") {
-    alert("Por favor, seleccione un cargo de la lista.");
-    return false;
-  }
-
-  if (fechaNacimiento === "") {
-    alert("Por favor, seleccione su fecha de nacimiento.");
-    return false;
-  }
-
-  if (password === "") {
-    alert("Por favor, escriba una contraseña.");
-    return false;
-  }
-  if (password.length < 6) {
-    alert("La contraseña debe tener al menos 6 caracteres por motivos de seguridad.");
-    return false;
-  }
-
-  alert("Registro exitoso, todos los datos son válidos.");
-}

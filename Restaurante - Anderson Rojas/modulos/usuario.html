@@ -1,154 +1,198 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="es">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Regístrese - Restaurante</title>
-  <!-- Enlace oficial a Bulma 1.0.4 -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.4/css/bulma.min.css" />
-  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-  <style>
-    /* Mantenemos el diseño y consistencia de la página anterior */
-    .page-margin {
-      padding: 3rem 1.5rem;
-    }
-    .register-box {
-      border: 2px solid #4a4a4a;
-      padding: 2.5rem;
-      background-color: #ffffff;
-      border-radius: 8px;
-      max-width: 650px;
-      margin: 0 auto;
-    }
-  </style>
-</head>
-<body>
-
-  <!-- Botón Regresar (Fuera del contenedor principal) -->
-  <div class="container mt-4 px-5">
-    <a href="http://127.0.0.1:5500/Restaurante%20-%20Anderson%20Rojas/index.html" class="button is-primary" id="btn-regresar">
-      Regresar
-    </a>
-  </div>
-
-  <!-- Contenedor del Formulario -->
-  <div class="page-margin">
-    <div class="register-box">
-      
-      <!-- Encabezado del Formulario -->
-      <h1 class="title is-3 is-spaced has-text-centered">Crear Cuenta</h1>
-      <p class="subtitle is-5 has-text-grey has-text-centered mb-5">
-        Registra tu información para poder crear una cuenta
-      </p>
-
-      <form id="form-registro" action="#" method="POST">
-        
-        <!-- Nombres y Apellidos en dos columnas -->
-        <div class="columns">
-          <div class="column">
-            <div class="field">
-              <label class="label" for="input-nombres">Nombres</label>
-              <div class="control">
-                <input class="input" type="text" id="input-nombres" name="nombres" placeholder="ej. Ellie Alejandra" required />
-              </div>
-            </div>
-          </div>
-          <div class="column">
-            <div class="field">
-              <label class="label" for="input-apellidos">Apellidos</label>
-              <div class="control">
-                <input class="input" type="text" id="input-apellidos" name="apellidos" placeholder="ej. Gómez Gallardo" required />
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Cédula y Correo -->
-        <div class="field">
-          <label class="label" for="input-cedula">Número de Cédula</label>
-          <div class="control">
-            <input class="input" type="text" id="input-cedula" name="cedula" placeholder="ej. 1234567890" required />
-          </div>
-        </div>
-
-        <div class="field">
-          <label class="label" for="input-email">Correo Electrónico</label>
-          <div class="control">
-            <input class="input" type="email" id="input-email" name="email" placeholder="ej. ejemplo@gmail.com" required />
-          </div>
-        </div>
-
-        <!-- Género y Cargo agrupados con Bulma -->
-        <div class="columns">
-          <div class="column">
-            <div class="field">
-              <label class="label" for="select-genero">Género</label>
-              <div class="control is-expanded">
-                <div class="select is-fullwidth">
-                  <select id="select-genero" name="genero" required>
-                    <option value="" disabled selected>Selecciona tu género</option>
-                    <option value="masculino">Masculino</option>
-                    <option value="femenino">Femenino</option>
-                    <option value="no-decirlo">Prefiero no decirlo</option>
-                  </select>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="column">
-            <div class="field">
-              <label class="label" for="select-cargo">Cargo</label>
-              <div class="control is-expanded">
-                <div class="select is-fullwidth">
-                  <select id="select-cargo" name="cargo" required>
-                    <option value="" disabled selected>Selecciona un cargo</option>
-                    <option value="cliente">Cliente</option>
-                    <option value="trabajador">Trabajador</option>
-                    <option value="administrador">Administrador</option>
-                  </select>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Fecha de nacimiento (Cambiado a tipo date nativo) -->
-        <div class="field">
-          <label class="label" for="input-fecha-nacimiento">Fecha de nacimiento</label>
-          <div class="control">
-            <input class="input" type="date" id="input-fecha-nacimiento" name="fecha_nacimiento" required />
-          </div>
-        </div>
-
-        <!-- Contraseña (Cambiado a tipo password por seguridad) -->
-        <div class="field">
-          <label class="label" for="input-password">Escriba su contraseña</label>
-          <div class="control">
-            <input class="input" type="password" id="input-password" name="password" placeholder="ej. contraseña123" required />
-          </div>
-        </div>
-
-        <!-- Botón de Envío -->
-        <div class="field mt-5">
-          <div class="control">
-            <button type="submit" class="button is-primary is-fullwidth" id="btn-registrar">
-              Registrar
-            </button>
-          </div>
-        </div>
-
-      </form>
-
-      <!-- Enlace para iniciar sesión alternativo -->
-      <p class="has-text-centered mt-4">
-        ¿Ya se registró? 
-        <a href="iniciarSesionUsuario.html" class="has-text-link" id="link-iniciar-sesion">
-          Presione aquí
-        </a> para iniciar sesión.
-      </p>
-
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Regístrese - Restaurante</title>
+    <!-- Enlace oficial a Bulma 1.0.4 -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bulma@1.0.4/css/bulma.min.css"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <style>
+      .page-margin {
+        padding: 3rem 1.5rem;
+      }
+      .register-box {
+        border: 2px solid #4a4a4a;
+        padding: 2.5rem;
+        background-color: #ffffff;
+        border-radius: 8px;
+        max-width: 650px;
+        margin: 0 auto;
+      }
+    </style>
+  </head>
+  <body class="has-background-light" style="min-height: 100vh">
+    <div class="container mt-4 px-5">
+      <a
+        href="http://127.0.0.1:5500/Restaurante%20-%20Anderson%20Rojas/index.html"
+        class="button is-primary"
+        id="btn-regresar"
+      >
+        Regresar
+      </a>
     </div>
-  </div>
-<script src="../JS/usuario.js"></script>
-</body>
+
+    <div class="page-margin">
+      <div class="register-box">
+        <h1 class="title is-3 is-spaced has-text-centered">Crear Cuenta</h1>
+        <p class="subtitle is-5 has-text-grey has-text-centered mb-5">
+          Registra tu información para poder crear una cuenta
+        </p>
+
+        <form id="form-registro">
+          <div class="columns">
+            <div class="column">
+              <div class="field">
+                <label class="label" for="input-nombres">Nombres</label>
+                <div class="control">
+                  <input
+                    class="input"
+                    type="text"
+                    id="input-nombres"
+                    name="nombres"
+                    placeholder="ej. Ellie Alejandra"
+                  />
+                </div>
+              </div>
+            </div>
+            <div class="column">
+              <div class="field">
+                <label class="label" for="input-apellidos">Apellidos</label>
+                <div class="control">
+                  <input
+                    class="input"
+                    type="text"
+                    id="input-apellidos"
+                    name="apellidos"
+                    placeholder="ej. Gómez Gallardo"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="field">
+            <label class="label" for="input-cedula">Número de Cédula</label>
+            <div class="control">
+              <input
+                class="input"
+                type="text"
+                id="input-cedula"
+                name="cedula"
+                placeholder="ej. 1234567890"
+              />
+            </div>
+          </div>
+
+          <div class="field">
+            <label class="label" for="input-email">Correo Electrónico</label>
+            <div class="control">
+              <input
+                class="input"
+                type="email"
+                id="input-email"
+                name="email"
+                placeholder="ej. ejemplo@gmail.com"
+              />
+            </div>
+          </div>
+
+          <div class="columns">
+            <div class="column">
+              <div class="field">
+                <label class="label" for="select-genero">Género</label>
+                <div class="control is-expanded">
+                  <div class="select is-fullwidth">
+                    <select id="select-genero" name="genero">
+                      <option value="" disabled selected>
+                        Selecciona tu género
+                      </option>
+                      <option value="masculino">Masculino</option>
+                      <option value="femenino">Femenino</option>
+                      <option value="no-decirlo">Prefiero no decirlo</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="column">
+              <div class="field">
+                <label class="label" for="select-cargo">Cargo</label>
+                <div class="control is-expanded">
+                  <div class="select is-fullwidth">
+                    <select id="select-cargo" name="cargo">
+                      <option value="" disabled selected>
+                        Selecciona un cargo
+                      </option>
+                      <option value="cliente">Cliente</option>
+                      <option value="trabajador">Trabajador</option>
+                      <option value="administrador">Administrador</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="field">
+            <label class="label" for="input-fecha-nacimiento"
+              >Fecha de nacimiento</label
+            >
+            <div class="control">
+              <input
+                class="input"
+                type="date"
+                id="input-fecha-nacimiento"
+                name="fecha_nacimiento"
+              />
+            </div>
+          </div>
+
+          <div class="field">
+            <label class="label" for="input-password"
+              >Escriba su contraseña</label
+            >
+            <div class="control">
+              <input
+                class="input"
+                type="password"
+                id="input-password"
+                name="password"
+                placeholder="ej. contraseña123"
+              />
+            </div>
+          </div>
+
+          <div class="field mt-5">
+            <div class="control">
+              <button
+                type="submit"
+                class="button is-primary is-fullwidth"
+                id="btn-registrar"
+              >
+                Registrar
+              </button>
+            </div>
+          </div>
+        </form>
+
+        <p class="has-text-centered mt-4">
+          ¿Ya se registró?
+          <a
+            href="iniciarSesionUsuario.html"
+            class="has-text-link"
+            id="link-iniciar-sesion"
+          >
+            Presione aquí
+          </a>
+          para iniciar sesión.
+        </p>
+      </div>
+    </div>
+
+    <script src="../JS/usuario.js"></script>
+  </body>
 </html>

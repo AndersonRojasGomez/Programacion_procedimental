@@ -1,46 +1,69 @@
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/bulma@1.0.4/css/bulma.min.css"/>
-      <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    
-    <title>Iniciar sesión</title>
-  </head>
-  <body>
-    <a href="usuario.html">
-    <div class="control">
-      <button class="button is-primary">Regresar</button>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Iniciar Sesión - Restaurante</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.4/css/bulma.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  
+  <style>
+    .page-margin {
+      padding: 3rem 1.5rem;
+    }
+    .login-box {
+      border: 2px solid #4a4a4a;
+      padding: 2.5rem;
+      background-color: #ffffff;
+      border-radius: 8px;
+      max-width: 480px;
+      margin: 0 auto;
+    }
+  </style>
+</head>
+<body class="has-background-light" style="min-height: 100vh;">
+  <div class="container mt-4 px-5">
+    <a href="usuario.html" class="button is-primary" id="btn-regresar">
+      Regresar
+    </a>
+  </div>
+  <div class="page-margin">
+    <div class="login-box">
+      <h1 class="title is-3 has-text-centered mb-5">Iniciar Sesión</h1>
+      <form id="form-login">
+        <div class="field mb-4">
+          <label class="label">Correo Electrónico</label>
+          <p class="control has-icons-left">
+            <input class="input" type="text" id="input-email" placeholder="ejemplo@gmail.com">
+            <span class="icon is-small is-left">
+              <i class="fas fa-envelope"></i>
+            </span>
+          </p>
+        </div>
+        <div class="field mb-5">
+          <label class="label">Contraseña</label>
+          <p class="control has-icons-left">
+            <input class="input" type="password" id="input-password" placeholder="Su contraseña">
+            <span class="icon is-small is-left">
+              <i class="fas fa-lock"></i>
+            </span>
+          </p>
+        </div>
+        <div class="field">
+          <p class="control">
+            <button type="submit" class="button is-success is-fullwidth" id="btn-login">
+              Iniciar Sesión
+            </button>
+          </p>
+        </div>
+      </form>
+      <p class="has-text-centered mt-4">
+        ¿No tienes cuenta? 
+        <a href="usuario.html" class="has-text-link">Regístrate aquí</a>
+      </p>
     </div>
-    <p><font size="5">Iniciar sesión</font></p>
-    <div class="field">
-  <p class="control has-icons-left has-icons-right">
-    <input class="input" type="email" id="email" placeholder="Mail">
-    <span class="icon is-small is-left">
-      <i class="fas fa-envelope"></i>
-    </span>
-    <span class="icon is-small is-right">
-      <i class="fas fa-check"></i>
-    </span>
-  </p>
-</div>
-<div class="field">
-  <p class="control has-icons-left">
-    <input class="input" type="password" id="password" placeholder="Contraseña">
-    <span class="icon is-small is-left">
-      <i class="fas fa-lock"></i>
-    </span>
-  </p>
-</div>
-<div class="field">
-  <p class="control">
-    <button class="button is-success">
-      Iniciar Sesión
-    </button>
-  </p>
-</div>
-  </body>
+  </div>
+  <script src="..//JS/iniciarSesionUsuario.js"></script>
+</body>
 </html>
